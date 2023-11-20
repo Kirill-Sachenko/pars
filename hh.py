@@ -12,11 +12,11 @@ import json
 
 
 keywords = ['python', 'Django', 'Flask']
-# main_link = 'https://spb.hh.ru/search/vacancy?text=python&area=1&area=2'
+main_link = 'https://spb.hh.ru/search/vacancy?text=python&area=1&area=2'
 
-# headers_gen = Headers(os = 'win', browser = 'Mircosoft Edge')
+headers_gen = Headers(os = 'win', browser = 'Mircosoft Edge')
 
-main_hh = requests.get('https://spb.hh.ru/search/vacancy?text=python&area=1&area=2')
+main_hh = requests.get(main_link, headers= headers_gen.generate())
 main_hh_html = main_hh.text
 
 main_soup = BeautifulSoup(main_hh_html, 'lxml')
